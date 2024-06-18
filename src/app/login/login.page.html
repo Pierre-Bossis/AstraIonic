@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="login-page">
+
+    <ion-row>
+      <ion-col size="12" size-lg="6" offset-lg="3">
+        <ion-card class="card1">
+          <ion-img src="../../assets/astra.png"></ion-img>
+          <div *ngIf="!displayInscription">
+          <form [formGroup]="loginFormGroup" (ngSubmit)="connexion">
+            <ion-input formControlName="email" label="Email" type="email" labelPlacement="floating" [counter]="true" maxlength="50"/>
+            <ion-input formControlName="motDePasse" label="Mot de passe" type="password" labelPlacement="floating" [counter]="true" maxlength="20"/>
+            <ion-button color="tertiary" (click)="connexion()" class="mt-5" expand="block">Connexion</ion-button>
+          </form>
+          <h5 style="margin-top: 50px;">Pas encore membre ?</h5>
+          <ion-button (click)="inscriptionForm()" style="margin-top: 20px;" fill="outline" expand="block" color="tertiary">Inscription</ion-button>
+        </div>
+
+        <div *ngIf="displayInscription">
+          <form [formGroup]="registerFormGroup" (ngSubmit)="register">
+            <ion-input label="Email" helperText="Enter a valid email" errorText="Invalid email" email type="email" formControlName="email" labelPlacement="floating" [counter]="true" maxlength="50"/>
+            <ion-input label="Pseudo" helperText="Enter a valid pseudo" errorText="Invalid pseudo" type="text" formControlName="pseudo" labelPlacement="floating" [counter]="true" maxlength="20"/>
+            <ion-input helperText="Enter a valid password" errorText="Invalid password" label="Mot de passe" type="password" formControlName="motDePasse" labelPlacement="floating" [counter]="true" maxlength="20"/>
+            <ion-input errorText="Passwords doesn't match." label="Confirmation" type="password" labelPlacement="floating" formControlName="confirm" [counter]="true" maxlength="20"/>
+            <ion-button (click)="inscriptionForm()" color="tertiary" fill="outline" class="mt-5" expand="block">Retour</ion-button>
+            <ion-button (click)="register()" color="success" class="mt-5" expand="block"><ion-text color="dark">Inscritpion</ion-text></ion-button>
+          </form>
+        </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <div style="bottom: 10px;position: absolute;">
+      <ion-text color="dark">® Astra</ion-text> 
+    </div>
+  </div>
+</ion-content>

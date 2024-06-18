@@ -1,0 +1,13 @@
+ion-img{
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+}
+
+.single-image {
+    max-height: 600px; /* Changer la hauteur maximale de l'image si elle est seule */
+  }
+  
+ion-card{
+    border-radius: 10px;
+}

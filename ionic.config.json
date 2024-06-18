@@ -1,0 +1,7 @@
+{
+  "name": "AstraIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

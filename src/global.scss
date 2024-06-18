@@ -1,0 +1,72 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+.mt-1{
+    margin-top: 1px;
+}
+.mt-2{
+    margin-top: 5px;
+}
+.mt-3{
+    margin-top: 10px;
+}
+.mt-5{
+    margin-top: 15px;
+}
+
+.mb-1{
+    margin-bottom: 1px;
+}
+.mb-2{
+    margin-bottom: 5px;
+}
+.mb-3{
+    margin-bottom: 10px;
+}
+.mb-5{
+    margin-bottom: 15px;
+}
+
+
+//dark / light theme
+.ios body {
+    --ion-background-color: #f2f2f6;
+    --ion-toolbar-background: var(--ion-background-color);
+    --ion-item-background: #fff;
+  }
+  
+  /* This sets a different background and item background in light mode on md */
+  .md body {
+    --ion-background-color: #f9f9f9;
+    --ion-toolbar-background: var(--ion-background-color);
+    --ion-item-background: #fff;
+  }
+  
+  /* This is added for the flashing that happens when toggling between themes */
+  ion-item {
+    --transition: none;
+  }

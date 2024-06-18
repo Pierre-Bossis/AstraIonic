@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Fil d'actualités</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Actualité</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid class="mt-5" *ngIf="postFormGroup">
+    <form [formGroup]="postFormGroup" (ngSubmit)="onSubmit()">
+    <ion-row>
+      <ion-col size-xs="12" class="ion-no-padding" size-md="8" offset-md="2" size-xl="4" offset-xl="4">
+        <ion-item class="mb-2">
+          <ion-textarea label="Exprimez-vous" labelPlacement="floating" formControlName="contenu"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-input type="file" (change)="loadFile($event)" multiple />
+        </ion-item>
+        <ion-item>
+          <ion-text color="secondary">Maximum 4 images({{files.length}} / 4)</ion-text>
+        </ion-item>
+        <ion-button type="submit" color="tertiary" class="mt-5" expand="block"><ion-icon slot="end" name="arrow-forward-outline"></ion-icon> Publier</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  </ion-grid>
+
+  <ion-grid *ngIf="posts.length > 0">
+    <ion-row *ngFor="let post of posts">
+      <ion-col size-xs="12" class="ion-no-padding" size-md="8" offset-md="2" size-xl="4" offset-xl="4">
+        <!-- <ion-text>{{post.contenu}}</ion-text> -->
+        <ion-card class="mb-3 ion-no-margin">
+          <ion-card-header>
+            <ion-avatar slot="start">
+              <img src="[Photo User Placeholder]" alt="User Photo Placeholder">
+            </ion-avatar>
+            <ion-card-title color="secondary">[Avatar] {{post.user_Pseudo}}</ion-card-title>
+            <ion-card-subtitle style="color:lightgreen">{{ post.dateCreation | date:'dd/MM/yyyy HH:mm' }}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <p style="font-size:18px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ post.contenu }}</p>
+            
+            <!-- Images -->
+            <ion-row>
+              <ion-col [size]="post.image2 ? '6' : '12'">
+                <ion-img *ngIf="post.image1" [src]="'data:image/jpeg;base64,' + post.image1" alt="Image 1" [class.single-image]="!post.image2"></ion-img>
+              </ion-col>
+              <ion-col [size]="post.image2 ? '6' : '12'">
+                <ion-img *ngIf="post.image2" [src]="'data:image/jpeg;base64,' + post.image2" alt="Image 2"></ion-img>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col [size]="post.image4 ? '6' : '12'">
+                <ion-img *ngIf="post.image3" [src]="'data:image/jpeg;base64,' + post.image3" alt="Image 3"></ion-img>
+              </ion-col>
+              <ion-col [size]="post.image4 ? '6' : '12'">
+                <ion-img *ngIf="post.image4" [src]="'data:image/jpeg;base64,' + post.image4" alt="Image 4"></ion-img>
+              </ion-col>
+            </ion-row>
+            
+            
+            <!-- Likes and Shares -->
+            <div class="ion-text-center">
+              <p class="mb-3"><ion-icon color="danger" name="heart-outline" size="large"></ion-icon>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ion-icon size="large" color="success" name="shuffle-outline"></ion-icon>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ion-icon size="large" color="secondary" name="chatbox-outline"></ion-icon>
+              </p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

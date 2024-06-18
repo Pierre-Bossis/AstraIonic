@@ -1,0 +1,17 @@
+.card1{
+    background-color: #ffffff;
+    padding:15px;
+    text-align: center;
+    top: 120px;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: url('../../assets/login.jpg') center center/cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: overlay;
+    position: relative;
+}
